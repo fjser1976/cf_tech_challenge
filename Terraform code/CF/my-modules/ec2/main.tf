@@ -1,8 +1,3 @@
-# resource "aws_instance" "this" {
-#   ami = local.image_id
-#   instance_type = "t2.micro"
-#   security_groups = ["default"]
-# }
  locals {
      #image_id = data.aws_ami.rhel_8.id 
      image_id = var.os_version == "Windows Server 2019" ? data.aws_ami.windows_2019.id : data.aws_ami.rhel_8.id 
