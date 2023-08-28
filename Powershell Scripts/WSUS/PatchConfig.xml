@@ -1,0 +1,15 @@
+<root>
+<!--if true, uses whatif to simulate most functions. Set to false to make changes for real-->
+  <TestMode>false</TestMode>
+<!--group that will receive all approved patches-->
+  <DefaultPatchGroup>All Computers</DefaultPatchGroup>
+  <Environment>Production</Environment>
+  <FromEmail>WinPatching@patching.local</FromEmail>
+  <ToEmail>noname@gmail.com</ToEmail>
+<!--HTTPS connection will require changing this to FQDN-->  
+  <WSUSServer>updateserver</WSUSServer>
+  <WSUSPort>8531</WSUSPort>
+  <SMTPServer>mailserer@patching.local</SMTPServer>
+  <SMTPPort>25</SMTPPort>
+  <OverdueDays>-20</OverdueDays>
+</root>

@@ -1,0 +1,47 @@
+<root>
+<!--Install Options-->
+    <Install>
+        <ReportViewer>True</ReportViewer>
+    <!--Locations to download the CRL types for SQL 2012 and Report Viewer 2012-->  
+        <CRLTypesURL>http://download.microsoft.com/download/F/E/D/FEDB200F-DE2A-46D8-B661-D019DFE9D470/ENU/x64/SQLSysClrTypes.msi</CRLTypesURL>
+        <ReportViewerURL>https://download.microsoft.com/download/F/B/7/FB728406-A1EE-4AB5-9C56-74EB8BDDF2FF/ReportViewer.msi</ReportViewerURL>
+    <!--For now, only Windows Internal Database (WID) supported-->  
+        <DBType>WID</DBType>
+    <!--Where to store the updates and other data-->        
+        <UpdateStorageLocation>C:\WSUS</UpdateStorageLocation>
+    </Install>
+<!--WSUS Configuration Options-->
+      <WSUSConfi
+    <!--Set to False if you want to manually configure WSUS-->        
+        <AutoConfigureWSUS>True</AutoConfigureWSUS>
+    <!--Next two options are for enabling auto approval rule (suggest false)-->          
+        <DefaultApproval>False</DefaultApproval>
+        <RunDefault>False</RunDefault>
+    <!--True: Clients download from MS directly; False: Clients download from WSUS server-->         
+        <DirectFromMS>False</DirectFromMS>
+      <!--Client: uses GPO/Reigsty for group assignment, Server: use Server Groupings-->
+        <TargetingMode>Client</TargetingMode>
+    <!--List of Products that will be marked as active for patching-->                
+        <Products>
+            <ProductEntry>Windows Server 2019</ProductEntry>
+        </Products>
+    <!--List of Classifications that will be marked as active for patching-->  
+        <Classifications>
+            <ClassEntry>Critical Updates</ClassEntry>
+            <ClassEntry>Definition Updates</ClassEntry>
+            <ClassEntry>Feature Packs</ClassEntry>
+            <ClassEntry>Security Updates</ClassEntry>
+            <ClassEntry>Service Packs</ClassEntry>
+            <ClassEntry>Tools</ClassEntry>
+            <ClassEntry>Update Rollups</ClassEntry>
+            <ClassEntry>Updates</ClassEntry>
+        </Classifications>
+        <TargetGroups>
+        <!--Subgroups will be crated under 'Default' group, others are creted under All Computers-->      
+            <SubGroups>
+                <SubGroup>Prod-GroupA</SubGroup>
+                <SubGroup>Prod-GroupB</SubGroup>
+            </SubGroups>
+        </TargetGroups>
+    </WSUSConfig>
+</root>
